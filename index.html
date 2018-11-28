@@ -14,10 +14,24 @@
 
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<style>
 		@import 'ui/css/evothings-app.css';
 
 		.panel-table > tr, .panel-table > td{
+			padding:5px;
+		} 
+
+		.cmd{
+			font-size: 96px;
+			color:blue;
+		}
+
+		table, tr, td{
+			border:1px solid brown;
+		} 
+
+		td {
 			padding:5px;
 		}
 
@@ -32,79 +46,51 @@
 
 <body ontouchstart=""><!-- ontouchstart="" enables low-delay CSS transitions. -->
 
-	<header>
-		<button class="back" onclick="history.back()">
-			<img src="ui/images/arrow-left.svg" />
-		</button>
+	<h1>CarritoWiFi</h1>
+	
 
-		<img class="logotype" src="ui/images/logo.svg" alt="Evothings" />
-
-		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
-	</header>
-
-	<h1>CarritoBT</h1>
-	<button id="devices-button">Dispositivos Bluetooth</button>
-
-	<div class="main-container">
+	<div class="main-container"> 
 		<table class="panel-table">
 			<tr>
 				<td></td>
-				<td><button id="del">Delante</button></td>
+				<td style="text-align: center"><i id="del" class="fas fa-caret-up cmd"></i></td>
 				<td></td>
 			</tr>
 			<tr>
-				<td><button id="izq">Izquierda</button></td>
-				<td><button id="det">Detener</button></td>
-				<td><button id="der">Derecha</button></td>
+				<td><i id="izq" class="fas fa-caret-left cmd"></td>
+				<td style="text-align: center"><i id="det" class="fas fa-stop cmd"></i></td>
+				<td style="text-align: right"><i id="der" class="fas fa-caret-right cmd"></i></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td id="rev"><button>Atr&aacute;s</button></td>
+				<td style="text-align: center"><i id="rev" class="fas fa-caret-down cmd"></i></td>
 				<td></td>
+			</tr>
+		</table>
+		<h1>Luces</h1>
+		<table style="text-align: center; border:1px solid brown">
+			<tr>
+				<td colspan="2"><button class="btn btn-sm" id="faros">Faros delanteros</button></td>
+			</tr>
+			<tr>
+				<td>
+					<button id="dire_izquierda" class="btn btn-sm">D. izquierdas</button>
+				</td>
+				<td>
+					<button id="dire_derecha"  class="btn btn-sm">D. derechas</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="preventivas" class="btn btn-sm">Preventivas</button></td>
 			</tr>
 		</table>
 	</div>
 
 
-	<div class="modal fade" role="dialog" id="devicesModal">
-
-		<div class="modal-dialog" role="document">
-
-			<div class="modal-content">
-
-				<div class="modal-header">
-
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-					<h4 class="modal-title">Modal title</h4>
-
-				</div>
-
-				<div class="modal-body">	
-
-					<div class="list-group" id="devicesList">
-
-					</div>
-
-				</div>
-
-				<div class="modal-footer">
-
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-					<button type="button" class="btn btn-primary">Save changes</button>
-
-				</div>
-
-			</div><!-- /.modal-content -->
-
-		</div><!-- /.modal-dialog -->
-
-	</div><!-- /.modal -->
+	
 
 	<script src="cordova.js"></script>
-	<script src="libs/evothings/evothings.js"></script>
-	<script src="libs/evothings/ui/ui.js"></script>
+	
 	<script src="app.js"></script>
 	<!-- TODO: Add libraries that you need -->
 
